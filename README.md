@@ -1,6 +1,6 @@
 # Programming 1 Assignment
 
-#How to run
+# How to run
 First do
 
 ```
