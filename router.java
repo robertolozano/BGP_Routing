@@ -31,7 +31,8 @@ public class router{
                 }
 
                 //Create IP obj from ip segments and add to IPList
-                IP ipObj = new IP(ipArrayInt[0], ipArrayInt[1], ipArrayInt[2], ipArrayInt[3]);
+                String bit32 = convertTo32(ipArrayInt[0], ipArrayInt[1], ipArrayInt[2], ipArrayInt[3]);
+                IP ipObj = new IP(ipArrayInt[0], ipArrayInt[1], ipArrayInt[2], ipArrayInt[3], bit32);
                 ipList.add(ipObj);
             }
             myReader.close();
@@ -89,7 +90,8 @@ public class router{
 
                 if(valid){
                     // Create IP obj from ip segments and add to IPList
-                    IP ipObj = new IP(ipArrayInt[0], ipArrayInt[1], ipArrayInt[2], ipArrayInt[3]);
+                    String bit32 = convertTo32(ipArrayInt[0], ipArrayInt[1], ipArrayInt[2], ipArrayInt[3]);
+                    IP ipObj = new IP(ipArrayInt[0], ipArrayInt[1], ipArrayInt[2], ipArrayInt[3], bit32);
                     int matchingTemp = Integer.parseInt(dataArrayStringFormat[2]);
                     int AStemp = Integer.parseInt(dataArrayStringFormat[1]);
                     Address addressObj = new Address(ipObj, matchingTemp, AStemp);
@@ -109,5 +111,26 @@ public class router{
         }
 
         System.out.println(LookupTable.size());
+
+
+    }
+
+    public static String convertTo32(int num1, int num2, int num3, int num4){
+        String leadingZeros = "00000000";
+
+        String first8 = leadingZeros + Integer.toString(num1,2);
+        String second8 = leadingZeros + Integer.toString(num2,2);
+        String third8 = leadingZeros + Integer.toString(num3,2);
+        String fourth8 = leadingZeros + Integer.toString(num4,2);
+
+        first8 = first8.substring(first8.length() - 8);
+        second8 = second8.substring(second8.length() - 8);
+        third8 = third8.substring(third8.length() - 8);
+        fourth8 = fourth8.substring(fourth8.length() - 8);
+
+        String bit32 = first8 + second8 + third8 + fourth8;
+
+        return bit32;
     }
 }
+

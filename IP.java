@@ -4,11 +4,14 @@ public class IP {
     int ip_3;
     int ip_4;
 
-    public IP(int ip1, int ip2, int ip3, int ip4){
+    String bit32;
+
+    public IP(int ip1, int ip2, int ip3, int ip4, String bits){
         this.ip_1 = ip1;
         this.ip_2 = ip2;
         this.ip_3 = ip3;
         this.ip_4 = ip4;
+        this.bit32 = bits;
     }
 
     public void display(){
