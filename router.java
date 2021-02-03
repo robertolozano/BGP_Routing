@@ -42,6 +42,7 @@ public class router{
         }
 
         //Print out IPList
+        System.out.println("Input IP's");
         for(int i = 0; i < ipList.size(); i++) {
             ipList.get(i).display();
         }
@@ -98,7 +99,7 @@ public class router{
                     LookupTable.add(addressObj);
                 }
                 if(!valid){
-                    System.out.println(ipData);
+                    System.out.println(ipData + " INVALID IP");
 
                 }
 
@@ -110,7 +111,7 @@ public class router{
             e.printStackTrace();
         }
 
-        System.out.println(LookupTable.size());
+        System.out.println("\nTotal number of IP': " + LookupTable.size());
 
 
     }
