@@ -42,12 +42,12 @@ public class router{
         }
 
         //Print out IPList
-        System.out.println("Input IP's");
-        for(int i = 0; i < ipList.size(); i++) {
-            ipList.get(i).display();
-        }
+        // System.out.println("Input IP's");
+        // for(int i = 0; i < ipList.size(); i++) {
+        //     ipList.get(i).display();
+        // }
 
-        System.out.println("");
+        // System.out.println("");
 
         try{
             //Reading in DB_091803.txt
@@ -99,7 +99,7 @@ public class router{
                     LookupTable.add(addressObj);
                 }
                 if(!valid){
-                    System.out.println(ipData + " INVALID IP");
+                    // System.out.println(ipData + " INVALID IP");
 
                 }
 
@@ -111,7 +111,8 @@ public class router{
             e.printStackTrace();
         }
 
-        System.out.println("\nTotal number of IP': " + LookupTable.size());
+        // System.out.println("\nTotal number of IP: " + LookupTable.size());
+        findBestAddress(ipList, LookupTable);
 
 
     }
@@ -132,6 +133,45 @@ public class router{
         String bit32 = first8 + second8 + third8 + fourth8;
 
         return bit32;
+    }
+
+    // function to look through table to find best address
+    public static void findBestAddress(ArrayList<IP> ipList, ArrayList<Address> LookupTable){ 
+        for(int i = 0; i < ipList.size(); i++) {
+            IP testIP = ipList.get(i);
+
+            // storing best output for each ip value
+            IP bestIP = testIP;
+            int bestLeadingPrefix = 0;
+            int bestASNumber = 0;
+
+            // subtracting the invalid IP addresses
+            int index = LookupTable.size();
+            index = index - 7;
+
+            // comparing ip address to each address in the look up table
+            for(int j = 0; j <= index; j++) {
+                Address a = LookupTable.get(j);
+
+                if (a.ip.ip_1 == testIP.ip_1) {  // compare the first 8 bits to save time
+                    if (testIP.bit32.regionMatches(0, a.ip.bit32, 0, a.AS)) { 
+                        if (a.AS > bestLeadingPrefix) {
+                            bestIP = a.ip;
+                            bestLeadingPrefix = a.AS;
+                            bestASNumber = a.numMatchingBits;
+                        }
+                    }
+                }
+            }
+
+            // output format
+            String bestAnswer = "/" + String.valueOf(bestLeadingPrefix) + " " + String.valueOf(bestASNumber) + " ";
+            
+            bestIP.output();
+            System.out.print(bestAnswer);
+            testIP.output();
+            System.out.print("\n");
+        }
     }
 }
 

@@ -17,4 +17,8 @@ public class IP {
     public void display(){
         System.out.println(ip_1 +"."+ ip_2 +"."+ ip_3 +"."+ ip_4);
     }
+
+    public void output(){
+        System.out.print(ip_1 +"."+ ip_2 +"."+ ip_3 +"."+ ip_4);
+    }
 }
