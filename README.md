@@ -1,4 +1,6 @@
 # Programming 1 Assignment
+Melissa Jost - 915842777 - Section A03
+Roberto Lozano - 914294300 - Section A01
 
 # How to run
 First do
@@ -18,3 +20,4 @@ javac Address.java
 ```
 javac IP.java
 ```
+The output will be printed to the terminal.
