@@ -1,6 +1,7 @@
 # Programming 1 Assignment
-Melissa Jost - 915842777 - Section A03
-Roberto Lozano - 914294300 - Section A01
+## Melissa Jost - 915842777 - Section A03
+
+## Roberto Lozano - 914294300 - Section A01
 
 # How to run
 First do
