@@ -41,14 +41,6 @@ public class router{
             e.printStackTrace();
         }
 
-        //Print out IPList
-        // System.out.println("Input IP's");
-        // for(int i = 0; i < ipList.size(); i++) {
-        //     ipList.get(i).display();
-        // }
-
-        // System.out.println("");
-
         try{
             //Reading in DB_091803.txt
             File myObj = new File(args[0]);
