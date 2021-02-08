@@ -12,8 +12,13 @@ javac router.java
 
 Then do
 ```
-java router
+java router <DBFile> <IPInput>
 ```
+Example
+```
+java router DB_091803.txt IPlist.txt
+```
+
 If needed you may have to do,
 ```
 javac Address.java
