@@ -3,6 +3,9 @@
 
 ## Roberto Lozano - 914294300 - Section A01
 
+# Important
+For our program we went with the option to print our results to standard output which was an option that was stated as allowed in the assignment description
+
 # How to run
 First do
 
