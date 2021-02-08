@@ -15,7 +15,7 @@ public class router{
         //Read 
         try{
             //Reading in IPList.txt
-            File myObj = new File("IPlist.txt");
+            File myObj = new File(args[1]); //IPLIST
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()){
                 String data = myReader.nextLine();
@@ -51,7 +51,7 @@ public class router{
 
         try{
             //Reading in DB_091803.txt
-            File myObj = new File("DB_091803.txt");
+            File myObj = new File(args[0]);
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()){
                 String data = myReader.nextLine();
@@ -100,7 +100,6 @@ public class router{
                 }
                 if(!valid){
                     // System.out.println(ipData + " INVALID IP");
-
                 }
 
             }
